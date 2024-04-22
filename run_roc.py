@@ -4,8 +4,8 @@ import random
 
 from train import str2bool
 
-DATASET = "roc"
-WARM_UP_PATH = "pretrained_weights/roc/"
+DATASET = "hybrid"
+WARM_UP_PATH = "pretrained_weights/hybrid/"
 
 
 def run(inp_cmd):
@@ -19,7 +19,7 @@ if __name__ == '__main__':
     parser.add_argument('--warmup', type=str2bool, default=True,
                         help="if you set warmup=False ensure `WARM_UP_PATH` not empty")
     parser.add_argument('--gpus', default="0,1,2,3")
-    parser.add_argument('--model_name', default="t5-small", choices=["bart-large-chinese", "bart-base-chinese", "bart-lang-chinese", "google/pegasus-xsum", "t5-small", "t5-mengzi", "t5-robust"])
+    parser.add_argument('--model_name', default="t5-small", choices=["bart-large-chinese", "bart-base-chinese", "bart-lang-chinese", "google/pegasus-xsum", "t5-small-chinese", "t5-mengzi", "t5-robust"])
     parser.add_argument('--accum_count', default=1)
     parser.add_argument('--warmup_batch_size', default=10)
     parser.add_argument('--batch_size', default=4)

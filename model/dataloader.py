@@ -61,7 +61,7 @@ def get_data_bundle(args):
         if "mengzi" in args.model_name:
             tokenizer_name = "t5-mengzi"
         else:
-            tokenizer_name = "/media/HD0/CoNT/t5-robust"
+            tokenizer_name = "t5-small-chinese"
     elif args.PTM == "pegasus":
         tokenizer_name = "google/pegasus-xsum"
     elif args.PTM == "bart":

@@ -53,8 +53,7 @@ mkdir tokenized_files
 mv /download/path/xsum.zip  ./jsonl_files
 cd jsonl_files
 unzip xsum.zip && cd ..
-python preprocess/preprocess.py --model_name  t5-small --dataset xsum
-python preprocess/preprocess.py --model_name  bart-lang8-hsk --dataset zh-hsk
+python preprocess/preprocess.py --model_name  t5-small-chinese --dataset hybrid
 ```
 
 This command will produce the tokenized files of XSum `tokenized_files/train.t5.jsonl, tokenized_files/val.t5.jsonl` with the tokenizer of t5-small  
@@ -65,11 +64,7 @@ We have provided the training scripts for each dataset we used in this paper, an
 
 ```
 #If there is no warmed-up checkpoint, you should use `--warmup True` to train the generation model with NLLLoss 
-python run_xsum.py --mode train --gpus 0,1,2,3 --warmup True --model_name t5-small (or google/pegasus-large)
-
-python run_sighan15.py --mode train --gpus 0,1 --warmup False --model_name bart-base-chinese
-python run_zh-hsk.py --mode train --gpus 0,1 --warmup False --model_name bart-lang-chinese
-
+python run_roc.py --mode train --gpus 0,1 --warmup True --model_name t5-small-chinese
 ```
 
 the warmed-up checkpoint will be saved to `./pretrained_weigths/xsum/t5(or pegasus)` by default.  
